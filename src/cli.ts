@@ -56,7 +56,7 @@ function printHelp(): void {
       "ai-fe",
       "",
       "用法：",
-      "  ai-fe init [--mode legacy|fresh]",
+      "  ai-fe init [--mode legacy|fresh] [--agents cursor,claude,windsurf,copilot,codex|all]",
       "  ai-fe scan",
       "  ai-fe create \"<需求描述>\" [--name feature-name]",
       "  ai-fe apply <spec-json-file> [--force]",
