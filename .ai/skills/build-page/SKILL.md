@@ -1,18 +1,18 @@
 ---
 name: build-page
-description: Use when creating or changing a route-level page.
+description: 创建或修改路由级页面时使用。
 ---
 
-# Skill: Build Page
+# 技能：Build Page
 
-## Must Follow
+## 必须遵守
 
-- Start from the feature spec.
-- Implement all required UI states.
-- Keep data loading separate from presentational components.
+- 从功能规格开始。
+- 实现所有必需 UI 状态。
+- 数据加载逻辑应与展示组件分离。
 
-## Must Output
+## 必须输出
 
-- Files changed
-- Verification commands
-- Risks
+- 变更文件
+- 验证命令
+- 风险

@@ -1,5 +1,5 @@
-# Testing Rules
+# 测试规则
 
-- Add regression coverage for changed behavior.
-- Prefer user-visible assertions.
-- Verification must run before a feature is marked done.
+- 对变更行为增加回归覆盖。
+- 优先使用用户可见行为断言。
+- 功能标记完成前必须运行验证。

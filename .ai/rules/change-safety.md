@@ -1,6 +1,6 @@
-# Change Safety Rules
+# 变更安全规则
 
-- Do not refactor unrelated code.
-- Do not modify protected files without explicit approval.
-- Keep changes scoped to the active feature.
-- Prefer small, reviewable diffs.
+- 不要重构无关代码。
+- 未经明确批准，不要修改受保护文件。
+- 变更范围应限制在当前功能内。
+- 优先提交小而可审查的 diff。

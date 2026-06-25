@@ -1,9 +1,18 @@
-# Verify Spec: User Management
+# 验证规格：用户管理
 
-## Checks
+## 必需检查
 
-- TypeScript
-- Lint
-- Build
-- Tests where available
-- Acceptance criteria coverage
+- typecheck
+- lint
+- build
+
+## 验收测试
+
+- 覆盖加载、空态、错误态
+- 覆盖提交失败保留输入
+- 覆盖权限显隐
+
+## 架构检查
+
+- 展示组件不能直接请求 API
+- 表单组件不能在失败时重置输入

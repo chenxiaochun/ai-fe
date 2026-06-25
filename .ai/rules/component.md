@@ -1,5 +1,5 @@
-# Component Rules
+# 组件规则
 
-- Presentational components should not call APIs directly.
-- Components must cover loading, empty, error, and ready states when applicable.
-- Keep props explicit and typed.
+- 展示组件不应直接调用 API。
+- 适用时，组件必须覆盖加载、空态、错误态和就绪态。
+- Props 应保持明确且有类型。

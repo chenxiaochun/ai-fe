@@ -1,0 +1,7 @@
+{
+  "schema": "ai-fe/state@0.1",
+  "activeFeature": "user-management",
+  "recentFeatures": [
+    "user-management"
+  ]
+}

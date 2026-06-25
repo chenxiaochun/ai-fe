@@ -1,10 +1,41 @@
-# Behavior Spec: User Management
+# 行为规格：用户管理
 
-## Acceptance Criteria
+## 用户行为
 
-- show loading on first load
-- show empty when no records exist
-- show error when API fails
-- reset page to 1 after search
-- preserve input when create fails
-- preserve input when edit fails
+### 搜索用户
+
+触发：用户提交搜索条件
+
+步骤：
+- 更新搜索关键词
+- 页码重置为 1
+- 重新请求用户列表
+
+### 新增用户失败
+
+触发：新增表单提交失败
+
+步骤：
+- 保持弹窗打开
+- 保留用户输入
+- 展示提交错误
+
+### 编辑用户失败
+
+触发：编辑表单提交失败
+
+步骤：
+- 保持弹窗打开
+- 保留用户输入
+- 展示提交错误
+
+## 验收标准
+
+- 首次进入页面展示加载状态
+- 无数据时展示空状态
+- 接口失败时展示错误状态
+- 搜索后页码重置为 1
+- 新增失败时保留用户输入
+- 编辑失败时保留用户输入
+- 无新增权限时隐藏新增入口
+- 无编辑权限时隐藏编辑入口

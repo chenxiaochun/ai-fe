@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "功能规格",
+  "type": "object",
+  "required": [
+    "schema",
+    "id",
+    "name",
+    "title",
+    "type",
+    "status",
+    "goal",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ai-fe/feature@0.1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,39}$"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,39}$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "basic-page",
+        "list-page",
+        "crud-page",
+        "form-page",
+        "modal-form",
+        "detail-page",
+        "settings-page",
+        "dashboard-page",
+        "auth-page",
+        "wizard-flow",
+        "custom"
+      ]
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "approved",
+        "planned",
+        "prompted",
+        "implemented",
+        "verified",
+        "learned"
+      ]
+    },
+    "route": {
+      "type": "string"
+    },
+    "goal": {
+      "type": "string"
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "inScope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outOfScope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "states": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "acceptanceCriteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    }
+  }
+}

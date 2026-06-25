@@ -5,9 +5,9 @@ import { question } from "../utils/prompt";
 import { info } from "../utils/logger";
 
 export async function runAdr(cwd: string, args: ParsedArgs): Promise<void> {
-  if (args.command[1] !== "new") throw new Error("Usage: ai-fe adr new");
+  if (args.command[1] !== "new") throw new Error("用法：ai-fe adr new");
 
-  const title = await question("Decision title", "New Architecture Decision");
+  const title = await question("决策标题", "新的架构决策");
   const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "decision";
   const fileName = timestamp() + "-" + slug + ".md";
   const filePath = path.join(cwd, "specs", "adr", fileName);
@@ -15,35 +15,35 @@ export async function runAdr(cwd: string, args: ParsedArgs): Promise<void> {
   writeText(
     filePath,
     [
-      "# ADR: " + title,
+      "# ADR：" + title,
       "",
-      "## Status",
+      "## 状态",
       "",
-      "Proposed",
+      "提议中",
       "",
-      "## Context",
+      "## 背景",
       "",
-      "TODO",
+      "待补充",
       "",
-      "## Decision",
+      "## 决策",
       "",
-      "TODO",
+      "待补充",
       "",
-      "## Consequences",
+      "## 影响",
       "",
-      "TODO",
+      "待补充",
       "",
-      "## Related Rules",
+      "## 相关规则",
       "",
-      "- TODO",
+      "- 待补充",
       "",
-      "## Related Skills",
+      "## 相关技能",
       "",
-      "- TODO"
+      "- 待补充"
     ].join("\n") + "\n"
   );
 
-  info("Created " + path.relative(cwd, filePath));
+  info("已创建 " + path.relative(cwd, filePath));
 }
 
 function timestamp(): string {

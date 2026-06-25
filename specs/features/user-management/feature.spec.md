@@ -1,22 +1,48 @@
-# Feature Spec: User Management
+# 功能规格：用户管理
 
 - ID: `user-management`
-- Type: `crud-page`
-- Status: `draft`
-- Route: `/user-management`
+- 功能名称：`user-management`
+- 类型：`crud-page`
+- 状态：`learned`
+- 路由：`/admin/users`
 
-## Scope
+## 目标
 
-Capabilities:
-- list
-- search
-- pagination
-- create
-- edit
+实现一个用户管理页面，支持搜索、分页、新增和编辑用户。
 
-Out of scope:
-- TODO
+## 范围
 
-## Notes
+### 包含
 
-- TODO
+- 展示用户列表
+- 按关键词搜索用户
+- 分页浏览用户
+- 新增用户
+- 编辑用户
+
+### 不包含
+
+- 删除用户
+- 批量导入
+- 角色分配
+
+## 用户
+
+- 管理员
+- 运营人员
+
+## 能力
+
+- 用户列表
+- 搜索
+- 分页
+- 新增用户
+- 编辑用户
+
+## 假设
+
+- 接口字段后续根据真实 API contract 补齐。
+
+## 风险
+
+- 旧项目中可能已有不一致的表单处理模式。

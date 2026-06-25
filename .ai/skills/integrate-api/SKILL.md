@@ -1,18 +1,18 @@
 ---
 name: integrate-api
-description: Use when connecting a feature to API data.
+description: 将功能连接到 API 数据时使用。
 ---
 
-# Skill: Integrate Api
+# 技能：Integrate Api
 
-## Must Follow
+## 必须遵守
 
-- Use existing request client.
-- Define typed API functions and hooks.
-- Invalidate related queries after mutation success.
+- 使用已有请求客户端。
+- 定义带类型的 API 函数和 hooks。
+- mutation 成功后失效相关查询。
 
-## Must Output
+## 必须输出
 
-- Files changed
-- Verification commands
-- Risks
+- 变更文件
+- 验证命令
+- 风险

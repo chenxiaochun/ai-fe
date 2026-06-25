@@ -4,7 +4,7 @@ import { info } from "../utils/logger";
 
 export function runRulesCheck(cwd: string): void {
   const rulesDir = path.join(cwd, ".ai", "rules");
-  if (!pathExists(rulesDir)) throw new Error("Missing .ai/rules. Run `ai-fe init` first.");
+  if (!pathExists(rulesDir)) throw new Error("缺少 .ai/rules。请先运行 `ai-fe init`。");
 
   const rules = listFiles(rulesDir, 2).filter(function(file) {
     return file.lastIndexOf(".md") === file.length - 3;
@@ -14,11 +14,11 @@ export function runRulesCheck(cwd: string): void {
     return readText(file).trim().length === 0;
   });
 
-  info("Rules found: " + rules.length);
+  info("发现规则文件：" + rules.length);
   if (empty.length > 0) {
-    throw new Error("Empty rule files: " + empty.map(function(file) {
+    throw new Error("存在空规则文件：" + empty.map(function(file) {
       return path.relative(cwd, file);
     }).join(", "));
   }
-  info("Rules check passed");
+  info("规则检查通过");
 }

@@ -1,18 +1,18 @@
 ---
 name: refactor-safely
-description: Use when touching legacy code.
+description: 触碰遗留代码时使用。
 ---
 
-# Skill: Refactor Safely
+# 技能：Refactor Safely
 
-## Must Follow
+## 必须遵守
 
-- Preserve behavior unless explicitly required.
-- Avoid public API renames.
-- Do not mix broad cleanup with feature work.
+- 除非明确要求，否则保持行为不变。
+- 避免重命名公共 API。
+- 不要把大范围清理和功能开发混在一起。
 
-## Must Output
+## 必须输出
 
-- Files changed
-- Verification commands
-- Risks
+- 变更文件
+- 验证命令
+- 风险

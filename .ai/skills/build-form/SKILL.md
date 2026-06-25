@@ -1,18 +1,18 @@
 ---
 name: build-form
-description: Use when creating create/edit forms.
+description: 创建新增/编辑表单时使用。
 ---
 
-# Skill: Build Form
+# 技能：Build Form
 
-## Must Follow
+## 必须遵守
 
-- Preserve user input on submit failure.
-- Close and reset only after mutation success.
-- Show field and form-level errors.
+- 提交失败时保留用户输入。
+- 只有 mutation 成功后才关闭和重置。
+- 展示字段级和表单级错误。
 
-## Must Output
+## 必须输出
 
-- Files changed
-- Verification commands
-- Risks
+- 变更文件
+- 验证命令
+- 风险

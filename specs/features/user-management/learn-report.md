@@ -1,17 +1,17 @@
-# Learn Report: User Management
+# 经验沉淀报告：User Management
 
-## Summary
+## 总结
 
-- TODO: Record what changed and what was learned.
+- 待补充：记录本次变更和经验。
 
-## Suggested Rule Updates
+## 建议更新的规则
 
-- TODO
+- 待补充
 
-## Suggested Skill Updates
+## 建议更新的技能
 
-- TODO
+- 待补充
 
-## Suggested ADR
+## 建议新增的 ADR
 
-- TODO
+- 待补充

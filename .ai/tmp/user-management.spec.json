@@ -1,0 +1,119 @@
+{
+  "schema": "ai-fe/feature@0.1",
+  "id": "user-management",
+  "name": "user-management",
+  "title": "用户管理",
+  "type": "crud-page",
+  "status": "draft",
+  "route": "/admin/users",
+  "goal": "实现一个用户管理页面，支持搜索、分页、新增和编辑用户。",
+  "users": ["管理员", "运营人员"],
+  "capabilities": ["用户列表", "搜索", "分页", "新增用户", "编辑用户"],
+  "inScope": ["展示用户列表", "按关键词搜索用户", "分页浏览用户", "新增用户", "编辑用户"],
+  "outOfScope": ["删除用户", "批量导入", "角色分配"],
+  "states": ["加载中", "空状态", "错误状态", "就绪", "搜索中", "提交中"],
+  "modalStates": ["新增弹窗", "编辑弹窗", "提交中", "提交失败"],
+  "components": [
+    {
+      "name": "UserManagementPage",
+      "role": "页面容器",
+      "responsibilities": ["组织页面布局", "连接查询和 mutation", "处理权限显隐"],
+      "forbidden": ["承载复杂表单字段实现"]
+    },
+    {
+      "name": "UserTable",
+      "role": "展示组件",
+      "responsibilities": ["展示用户列表", "展示编辑入口", "展示空状态"],
+      "forbidden": ["直接请求 API"]
+    },
+    {
+      "name": "UserFormModal",
+      "role": "表单弹窗",
+      "responsibilities": ["渲染新增和编辑表单", "展示表单校验错误", "提交失败时保留输入"],
+      "forbidden": ["直接修改全局状态", "提交失败后清空表单"]
+    }
+  ],
+  "apiDependencies": [
+    {
+      "name": "listUsers",
+      "method": "GET",
+      "path": "/api/users",
+      "description": "获取用户列表",
+      "confirmed": false
+    },
+    {
+      "name": "createUser",
+      "method": "POST",
+      "path": "/api/users",
+      "description": "新增用户",
+      "confirmed": false
+    },
+    {
+      "name": "updateUser",
+      "method": "PUT",
+      "path": "/api/users/:id",
+      "description": "编辑用户",
+      "confirmed": false
+    }
+  ],
+  "dataOwnership": {
+    "serverState": "用户列表、分页信息和提交结果由接口层管理。",
+    "formState": "新增和编辑表单状态由表单组件管理。",
+    "urlState": "搜索关键词和页码可进入 URL query。",
+    "permissionState": "权限状态由项目既有权限模块提供。"
+  },
+  "permissions": [
+    {
+      "key": "user:read",
+      "description": "查看用户列表"
+    },
+    {
+      "key": "user:create",
+      "description": "新增用户"
+    },
+    {
+      "key": "user:update",
+      "description": "编辑用户"
+    }
+  ],
+  "behaviors": [
+    {
+      "name": "搜索用户",
+      "trigger": "用户提交搜索条件",
+      "steps": ["更新搜索关键词", "页码重置为 1", "重新请求用户列表"]
+    },
+    {
+      "name": "新增用户失败",
+      "trigger": "新增表单提交失败",
+      "steps": ["保持弹窗打开", "保留用户输入", "展示提交错误"]
+    },
+    {
+      "name": "编辑用户失败",
+      "trigger": "编辑表单提交失败",
+      "steps": ["保持弹窗打开", "保留用户输入", "展示提交错误"]
+    }
+  ],
+  "failurePolicy": {
+    "submitFailed": "preserve-input-and-show-error"
+  },
+  "acceptanceCriteria": [
+    "首次进入页面展示加载状态",
+    "无数据时展示空状态",
+    "接口失败时展示错误状态",
+    "搜索后页码重置为 1",
+    "新增失败时保留用户输入",
+    "编辑失败时保留用户输入",
+    "无新增权限时隐藏新增入口",
+    "无编辑权限时隐藏编辑入口"
+  ],
+  "verification": {
+    "requiredChecks": ["typecheck", "lint", "build"],
+    "acceptanceTests": ["覆盖加载、空态、错误态", "覆盖提交失败保留输入", "覆盖权限显隐"],
+    "architectureChecks": ["展示组件不能直接请求 API", "表单组件不能在失败时重置输入"]
+  },
+  "assumptions": ["接口字段后续根据真实 API contract 补齐。"],
+  "todos": ["确认 API 字段", "确认权限 key"],
+  "risks": ["旧项目中可能已有不一致的表单处理模式。"],
+  "createdAt": "2026-06-25T00:00:00.000Z",
+  "updatedAt": "2026-06-25T00:00:00.000Z"
+}

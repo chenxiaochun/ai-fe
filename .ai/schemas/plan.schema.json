@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "实施方案",
+  "type": "object",
+  "required": [
+    "schema",
+    "featureId",
+    "summary",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ai-fe/plan@0.1"
+    },
+    "featureId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,39}$"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "filesToCreate": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "filesToModify": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "componentTree": {
+      "type": "string"
+    },
+    "dataFlow": {
+      "type": "string"
+    },
+    "stateOwnership": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "implementationTasks": {
+      "type": "array"
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rulesToFollow": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    }
+  }
+}

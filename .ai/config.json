@@ -1,6 +1,13 @@
 {
   "schema": "ai-fe/config@0.1",
   "mode": "legacy",
+  "agent": {
+    "mode": "external",
+    "taskDir": ".ai/tasks",
+    "schemaDir": ".ai/schemas",
+    "tmpDir": ".ai/tmp",
+    "requireUserApproval": true
+  },
   "spec": {
     "defaultStatus": "draft",
     "requireApprovalBeforePlan": true,

@@ -1,17 +1,17 @@
-# Verify Report: user-management
+# 验证报告：user-management
 
-Status: passed
+状态：通过
 
-## Checks
+## 检查项
 
-| Check | Required | Result | Command |
+| 检查项 | 必需 | 结果 | 命令 |
 |---|---:|---|---|
-| typecheck | true | passed | `npm run typecheck` |
-| lint | true | passed | `npm run lint` |
-| test | false | passed | `npm test` |
-| build | true | passed | `npm run build` |
+| typecheck | true | 通过 | `npm run typecheck` |
+| lint | true | 通过 | `npm run lint` |
+| test | false | 通过 | `npm test` |
+| build | true | 通过 | `npm run build` |
 
-## Output
+## 输出
 
 ### typecheck
 
@@ -39,11 +39,11 @@ npm warn Unknown user config "home". This will stop working in the next major ve
 > ai-fe@0.1.0 test
 > node dist/cli.js doctor
 
-OK   node
-OK   typescript compiler
-OK   package.json
-OK   .ai/config.json
-OK   verification/config.json
+通过 node
+通过 TypeScript 编译器
+通过 package.json
+通过 .ai/config.json
+通过 verification/config.json
 
 npm warn Unknown user config "home". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
 ```

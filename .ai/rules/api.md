@@ -1,6 +1,6 @@
-# API Rules
+# API 规则
 
-- Use the existing request client.
-- Keep request and response types explicit.
-- Mutation failure must not reset form state.
-- Reset forms only after confirmed success.
+- 使用项目已有请求客户端。
+- 请求和响应类型必须明确。
+- Mutation 失败不得重置表单状态。
+- 只有确认成功后才重置表单。

@@ -1,0 +1,63 @@
+{
+  "schema": "ai-fe/plan@0.1",
+  "featureId": "user-management",
+  "summary": "基于现有项目结构实现用户管理页面，先建立 API 与查询层，再实现页面容器、表格、表单弹窗和验证。",
+  "filesToCreate": [
+    "src/features/user-management/api.ts",
+    "src/features/user-management/queries.ts",
+    "src/features/user-management/UserManagementPage.tsx",
+    "src/features/user-management/components/UserTable.tsx",
+    "src/features/user-management/components/UserFormModal.tsx"
+  ],
+  "filesToModify": [
+    "src/routes 或现有路由入口"
+  ],
+  "componentTree": "UserManagementPage -> UserTable + UserFormModal",
+  "dataFlow": "页面容器读取 URL/query 状态，查询层请求用户列表，mutation 成功后刷新列表。",
+  "stateOwnership": [
+    "服务端状态归 React Query 或项目既有查询层",
+    "表单状态归 UserFormModal",
+    "权限状态归项目既有权限模块"
+  ],
+  "implementationTasks": [
+    {
+      "title": "建立数据层",
+      "description": "定义用户列表、新增和编辑的类型与 API 函数。",
+      "items": [
+        "新增 API 类型",
+        "实现 listUsers/createUser/updateUser",
+        "实现查询和 mutation hooks"
+      ]
+    },
+    {
+      "title": "实现页面 UI",
+      "description": "实现列表、搜索、分页和新增/编辑入口。",
+      "items": [
+        "实现页面容器",
+        "实现 UserTable",
+        "实现 UserFormModal",
+        "覆盖加载/空态/错误态"
+      ]
+    },
+    {
+      "title": "补充验证",
+      "description": "补充关键行为测试并运行验证命令。",
+      "items": [
+        "测试提交失败保留输入",
+        "测试权限显隐",
+        "运行 ai-fe verify"
+      ]
+    }
+  ],
+  "risks": [
+    "真实 API 字段未确认",
+    "权限模块位置未确认"
+  ],
+  "rulesToFollow": [
+    "展示组件不能直接请求 API",
+    "提交失败时必须保留用户输入",
+    "不要重构无关文件"
+  ],
+  "createdAt": "2026-06-25T00:00:00.000Z",
+  "updatedAt": "2026-06-25T05:56:12.311Z"
+}

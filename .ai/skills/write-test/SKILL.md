@@ -1,18 +1,18 @@
 ---
 name: write-test
-description: Use when adding feature verification.
+description: 增加功能验证时使用。
 ---
 
-# Skill: Write Test
+# 技能：Write Test
 
-## Must Follow
+## 必须遵守
 
-- Cover acceptance criteria.
-- Test error and empty states.
-- Prefer behavior over implementation details.
+- 覆盖验收标准。
+- 测试错误态和空态。
+- 优先验证行为，而不是实现细节。
 
-## Must Output
+## 必须输出
 
-- Files changed
-- Verification commands
-- Risks
+- 变更文件
+- 验证命令
+- 风险

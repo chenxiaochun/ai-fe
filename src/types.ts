@@ -16,8 +16,15 @@ export type FeaturePreset =
 export interface AiFeConfig {
   schema: "ai-fe/config@0.1";
   mode: ProjectMode;
+  agent: {
+    mode: "external";
+    taskDir: string;
+    schemaDir: string;
+    tmpDir: string;
+    requireUserApproval: boolean;
+  };
   spec: {
-    defaultStatus: "draft" | "approved";
+    defaultStatus: FeatureStatus;
     requireApprovalBeforePlan: boolean;
     requireApprovalBeforePrompt: boolean;
   };
@@ -35,20 +42,89 @@ export interface AiFeConfig {
   };
 }
 
+export type FeatureStatus = "draft" | "approved" | "planned" | "prompted" | "implemented" | "verified" | "learned";
+
 export interface FeatureSpec {
   schema: "ai-fe/feature@0.1";
   id: string;
-  type: FeaturePreset;
-  status: "draft" | "approved";
+  name: string;
   title: string;
-  route: string;
+  type: FeaturePreset;
+  status: FeatureStatus;
+  route?: string;
+  goal: string;
+  users: string[];
   capabilities: string[];
-  states: string[];
-  failurePolicy: { [name: string]: string };
-  permissions: string[];
-  acceptanceCriteria: string[];
+  inScope: string[];
   outOfScope: string[];
-  notes: string[];
+  states: string[];
+  modalStates: string[];
+  components: Array<{
+    name: string;
+    role: string;
+    responsibilities: string[];
+    forbidden: string[];
+  }>;
+  apiDependencies: Array<{
+    name: string;
+    method: string;
+    path: string;
+    description?: string;
+    confirmed: boolean;
+  }>;
+  dataOwnership: {
+    serverState?: string;
+    formState?: string;
+    urlState?: string;
+    permissionState?: string;
+  };
+  permissions: Array<{
+    key: string;
+    description: string;
+  }>;
+  behaviors: Array<{
+    name: string;
+    trigger?: string;
+    steps: string[];
+  }>;
+  failurePolicy: { [name: string]: string };
+  acceptanceCriteria: string[];
+  verification: {
+    requiredChecks: string[];
+    acceptanceTests: string[];
+    architectureChecks: string[];
+  };
+  assumptions: string[];
+  todos: string[];
+  risks: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface AiFeState {
+  schema: "ai-fe/state@0.1";
+  activeFeature: string | null;
+  recentFeatures: string[];
+}
+
+export interface PlanSpec {
+  schema: "ai-fe/plan@0.1";
+  featureId: string;
+  summary: string;
+  filesToCreate: string[];
+  filesToModify: string[];
+  componentTree?: string;
+  dataFlow?: string;
+  stateOwnership: string[];
+  implementationTasks: Array<{
+    title: string;
+    description: string;
+    items: string[];
+  }>;
+  risks: string[];
+  rulesToFollow: string[];
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface VerifyCheck {
@@ -69,4 +145,9 @@ export interface ParsedArgs {
   command: string[];
   flags: { [name: string]: string | boolean };
   rest: string[];
+}
+
+export interface ValidationResult {
+  ok: boolean;
+  errors: string[];
 }
