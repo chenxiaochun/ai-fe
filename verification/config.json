@@ -1,0 +1,37 @@
+{
+  "schema": "ai-fe/verification@0.1",
+  "checks": [
+    {
+      "name": "typecheck",
+      "command": "npm run typecheck",
+      "required": true
+    },
+    {
+      "name": "lint",
+      "command": "npm run lint",
+      "required": true
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "required": false
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "required": true
+    }
+  ],
+  "architecture": {
+    "rules": [
+      {
+        "name": "presentational-components-no-api-import",
+        "enabled": true
+      },
+      {
+        "name": "no-cross-feature-import",
+        "enabled": true
+      }
+    ]
+  }
+}

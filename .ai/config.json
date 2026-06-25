@@ -1,0 +1,32 @@
+{
+  "schema": "ai-fe/config@0.1",
+  "mode": "legacy",
+  "spec": {
+    "defaultStatus": "draft",
+    "requireApprovalBeforePlan": true,
+    "requireApprovalBeforePrompt": true
+  },
+  "project": {
+    "sourceDir": "src",
+    "featureDir": "src/features",
+    "specDir": "specs/features"
+  },
+  "verification": {
+    "commands": {
+      "typecheck": "npm run typecheck",
+      "lint": "npm run lint",
+      "test": "npm test",
+      "build": "npm run build"
+    }
+  },
+  "safety": {
+    "protectedFiles": [
+      "src/services/http.ts",
+      "src/stores/auth.ts",
+      "src/config/env.ts"
+    ],
+    "legacyZones": [
+      "src/old-pages/**"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "ai-fe/feature@0.1",
+  "id": "user-management",
+  "type": "crud-page",
+  "status": "draft",
+  "title": "User Management",
+  "route": "/user-management",
+  "capabilities": [
+    "list",
+    "search",
+    "pagination",
+    "create",
+    "edit"
+  ],
+  "states": [
+    "loading",
+    "empty",
+    "error",
+    "ready",
+    "searching",
+    "submitting"
+  ],
+  "failurePolicy": {
+    "submitFailed": "preserve-input-and-show-error"
+  },
+  "permissions": [],
+  "acceptanceCriteria": [
+    "show loading on first load",
+    "show empty when no records exist",
+    "show error when API fails",
+    "reset page to 1 after search",
+    "preserve input when create fails",
+    "preserve input when edit fails"
+  ],
+  "outOfScope": [],
+  "notes": []
+}

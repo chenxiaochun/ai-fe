@@ -1,0 +1,29 @@
+{
+  "name": "ai-fe",
+  "version": "0.1.0",
+  "description": "AI-native frontend engineering workflow CLI.",
+  "type": "commonjs",
+  "bin": {
+    "ai-fe": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "node dist/cli.js doctor",
+    "dev": "tsc -p tsconfig.json && node dist/cli.js",
+    "doctor": "tsc -p tsconfig.json && node dist/cli.js doctor"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
